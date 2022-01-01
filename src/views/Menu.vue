@@ -1,7 +1,7 @@
 <template>
   <div id="menu">
     <el-row>
-      <Navigation id="nav"/>
+      <Navigation id="nav" :show="show"/>
     </el-row>
     <router-view>
 
@@ -16,7 +16,12 @@ export default {
   name: "Menu",
   components: {
     Navigation
-  }
+  },
+  data(){
+    return{
+      show:false
+    }
+  },
 }
 </script>
 

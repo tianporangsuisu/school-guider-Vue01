@@ -1,8 +1,8 @@
 <!--实现获取所有建筑-->
 <template>
-<div>
-<el-table
-        :data="userList"
+  <div>
+    <el-table
+        :data="buildingList"
         border
         height="250" width="400">
       <!--      关于prop：vue会自动寻找列表中每个对象的id属性-->
@@ -18,20 +18,32 @@
           width="70">
       </el-table-column>
       <el-table-column
-          prop="信息"
-          label="描述">
+          prop="introduction"
+          label="建筑描述">
       </el-table-column>
     </el-table>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
   name: "BuildingList",
-  data(){
-    return{
-
+  data() {
+    return {
+      buildingList: null,
     }
+  },
+  methods: {
+    getAll() {
+      let url ="guide/getAll"
+      this.axios.get(url)
+          .then(response => {
+            this.buildingList = response.data;
+          })
+    },
+  },
+  mounted() {
+    this.getAll();
   }
 }
 </script>
