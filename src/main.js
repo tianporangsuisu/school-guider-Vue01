@@ -10,7 +10,8 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(VueAxios,axios);
 //修改baseURL
-axios.defaults.baseURL="http://localhost:8081/"
+axios.defaults.baseURL="http://212.64.64.167:8081/"
+import './Css/Globel.css'
 
 new Vue({
     el: '#app',
